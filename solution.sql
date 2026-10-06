@@ -1,15 +1,12 @@
--- Lab Program 11
--- Create the StudentDetails view.
---
--- The view must display:
--- StudentName
--- CourseName
--- DepartmentName
---
--- Required view name:
--- StudentDetails
-
-USE CollegeDB;
-
--- Write your solution below.
-
+CREATE VIEW StudentDetails AS
+SELECT 
+    Student.StudentID,
+    Student.StudentName,
+    Student.DepartmentID,
+    Course.CourseID,
+    Course.CourseName
+FROM Student
+JOIN Enrollment
+    ON Student.StudentID = Enrollment.StudentID
+JOIN Course
+    ON Enrollment.CourseID = Course.CourseID;
